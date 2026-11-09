@@ -2,113 +2,105 @@
 
 namespace Solution
 {
-
     public class OOPPlayer : Character
     {
+        public static OOPPlayer ActivePlayer { get; private set; }
+
+        [Header("Player Combat")]
+        [SerializeField]
+        private int baseDamage = 10;
+
+        [SerializeField]
+        private ElementType currentElement = ElementType.Normal;
+
+        [SerializeField]
+        private float fireDamageMultiplier = 2f;
+
+        [Header("Components")]
         public Inventory inventory;
         public ActionHistoryManager actionHistoryManager;
 
-        public bool isAutoMoving = false; // Flag to control auto-movement
+        public bool isAutoMoving = false;
+
+        public int BaseDamage => baseDamage;
+        public ElementType CurrentElement => currentElement;
+
+        protected virtual void Awake()
+        {
+            ActivePlayer = this;
+        }
+
+        protected virtual void OnDestroy()
+        {
+            if (ActivePlayer == this)
+            {
+                ActivePlayer = null;
+            }
+        }
+
+        public void SetElement(ElementType element)
+        {
+            currentElement = element;
+            Debug.Log($"{Name} element changed to {element}.");
+        }
+
+        public int GetDamage()
+        {
+            if (currentElement == ElementType.Fire)
+            {
+                return Mathf.RoundToInt(baseDamage * fireDamageMultiplier);
+            }
+
+            return baseDamage;
+        }
 
         public override void SetUP()
         {
             base.SetUP();
             PrintInfo();
             GetRemainEnergy();
+
             inventory = GetComponent<Inventory>();
-            // Initialize the action history manager and save the starting position
             actionHistoryManager = GetComponent<ActionHistoryManager>();
-            actionHistoryManager.SaveStateForUndo(new Vector2(positionX,positionY));
-        }
 
-        public void Update()
-        {           
-
-            // Manual input is only processed if not in auto-move mode
-            if (!isAutoMoving)
+            if (actionHistoryManager != null)
             {
-                if (Input.GetKeyDown(KeyCode.W))
-                {
-                    Move(Vector2.up);
-                }
-                if (Input.GetKeyDown(KeyCode.S))
-                {
-                    Move(Vector2.down);
-                }
-                if (Input.GetKeyDown(KeyCode.A))
-                {
-                    Move(Vector2.left);
-                }
-                if (Input.GetKeyDown(KeyCode.D))
-                {
-                    Move(Vector2.right);
-                }
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    UseFireStorm();
-                }
-                // Input for Undo (U key)
-                if (Input.GetKeyDown(KeyCode.Z))
-                {
-                    actionHistoryManager.UndoLastMove(this);
-                }
-                if (Input.GetKeyDown(KeyCode.Y))
-                {
-                    actionHistoryManager.RedoLastMove(this);
-                }
-
-                // Input for starting an example auto-move sequence (Q key)
-                if (Input.GetKeyDown(KeyCode.Q) && !isAutoMoving)   
-                {
-                    actionHistoryManager.StartAutoMoveSequence(this);
-                }
+                actionHistoryManager.SaveStateForUndo(new Vector2(positionX, positionY));
             }
         }
+
         public override void Move(Vector2 direction)
         {
             base.Move(direction);
-            mapGenerator.MoveEnemies();
-            // Save the state AFTER the move
-            Vector2 newPosition = new Vector2(this.positionX, this.positionY);
-            actionHistoryManager.SaveStateForUndo(newPosition);
+
+            if (mapGenerator != null)
+            {
+                mapGenerator.MoveEnemies();
+            }
+
+            if (actionHistoryManager != null)
+            {
+                Vector2 newPosition = new Vector2(positionX, positionY);
+                actionHistoryManager.SaveStateForUndo(newPosition);
+            }
         }
 
-        public void UseFireStorm()
+        public void Attack(OOPEnemy enemy)
         {
-            if (inventory.HasItem("FireStorm",1))
-            {
-                inventory.UseItem("FireStorm",1);
-                OOPEnemy[] enemies = UtilitySortEnemies.SortEnemiesByRemainningEnergy1(mapGenerator);
-                int count = 3;
-                if (count > enemies.Length)
-                {
-                    count = enemies.Length;
-                }
-                for (int i = 0; i < count; i++)
-                {
-                    enemies[i].TakeDamage(10);
-                }
-            }
-            else
-            {
-                Debug.Log("No FireStorm in inventory");
-            }
+            if (enemy == null) return;
+
+            enemy.TakeDamage(GetDamage());
+            Debug.Log($"{enemy.Name} energy is {enemy.energy}.");
         }
-        
-        public void Attack(OOPEnemy _enemy)
-        {
-            _enemy.TakeDamage(AttackPoint);
-            Debug.Log(_enemy.name + " is energy " + _enemy.energy);
-        }
+
         protected override void CheckDead()
         {
             base.CheckDead();
+
             if (energy <= 0)
             {
-                Debug.Log("Player is Dead");
+                Debug.Log("Player is dead.");
             }
         }
-
     }
-
 }

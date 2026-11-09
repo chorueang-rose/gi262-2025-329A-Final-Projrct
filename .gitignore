@@ -50,3 +50,14 @@ crashlytics-build.properties
 # Windows system files
 Thumbs.db
 .vs/gi262-2025-workshop/FileContentIndex/4901a2fc-37be-445f-969d-0b7dcc8a5914.vsidx
+.vs/
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+MemoryCaptures/
+UserSettings/
+*.csproj
+*.sln

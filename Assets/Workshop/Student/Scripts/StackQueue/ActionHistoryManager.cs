@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace Solution
 {
     public class ActionHistoryManager : MonoBehaviour
@@ -12,45 +13,45 @@ namespace Solution
         // 2. Auto-Move System using Queue
         private Queue<Vector2> autoMoveQueue = new Queue<Vector2>();
 
-        #region "This Is undoStack Function"
+        #region Undo / Redo Functions
 
+        /// <summary>
         /// Saves the current player state (position) to the undo stack.
+        /// </summary>
         public void SaveStateForUndo(Vector2 currentPosition)
         {
-            // Only push a state if it's different from the last saved state 
-            // (optional optimization, but good practice for movement)
             if (undoStack.Count == 0 || !undoStack.Peek().Equals(currentPosition))
             {
                 undoStack.Push(currentPosition);
-                
+
                 if (redoStack.Count > 0)
                 {
                     redoStack.Clear();
                     Debug.Log("New move detected. Redo stack cleared.");
                 }
-                
+
                 Debug.Log($"State saved: Position {currentPosition}. Stack size: {undoStack.Count}");
             }
         }
+
+        /// <summary>
         /// Reverts the player's state to the previous one using the undo stack.
         /// </summary>
         public void UndoLastMove(OOPPlayer player)
         {
-            // Need at least two states: the current one, and the one to revert to.
+            if (player == null) return;
+
             if (undoStack.Count > 1)
             {
-                // Pop the current state
+                // Pop Current Position
                 Vector2 currentState = undoStack.Pop();
                 redoStack.Push(currentState);
 
-                // Peek at the previous state
+                // Target Previous Position
                 Vector2 previousState = undoStack.Peek();
 
-                // Revert the player's position
-                transform.position = previousState;
-
-                int toX = (int)transform.position.x;
-                int toY = (int)transform.position.y;
+                int toX = (int)previousState.x;
+                int toY = (int)previousState.y;
 
                 player.UpdatePosition(toX, toY);
                 Debug.Log($"Undo successful! Reverted to position: {previousState}. Stack size: {undoStack.Count}");
@@ -60,21 +61,21 @@ namespace Solution
                 Debug.Log("Cannot undo: No previous states saved.");
             }
         }
+
+        /// <summary>
+        /// Redoes the last undone move using the redo stack.
+        /// </summary>
         public void RedoLastMove(OOPPlayer player)
         {
+            if (player == null) return;
+
             if (redoStack.Count > 0)
             {
-                // 1. ดึงสถานะที่ยกเลิกไปล่าสุดจาก Redo Stack
                 Vector2 stateToRedo = redoStack.Pop();
-
-                // 2. ผลักสถานะนี้เข้า Undo Stack กลับไป
                 undoStack.Push(stateToRedo);
 
-                // 3. อัปเดตตำแหน่งผู้เล่น
-                transform.position = stateToRedo;
-
-                int toX = (int)transform.position.x;
-                int toY = (int)transform.position.y;
+                int toX = (int)stateToRedo.x;
+                int toY = (int)stateToRedo.y;
 
                 player.UpdatePosition(toX, toY);
                 Debug.Log($"Redo successful! Reverted to position: {stateToRedo}. Undo size: {undoStack.Count}, Redo size: {redoStack.Count}");
@@ -84,12 +85,15 @@ namespace Solution
                 Debug.Log("Cannot redo: No undone states available.");
             }
         }
+
         #endregion
 
-        #region "This Is autoMoveQueue Function"
+        #region Auto-Move Functions
 
         public void StartAutoMoveSequence(OOPPlayer player)
         {
+            if (player == null) return;
+
             List<Vector2> sequence = new List<Vector2>
             {
                 Vector2.right,
@@ -99,14 +103,17 @@ namespace Solution
                 Vector2.up,
                 Vector2.down
             };
+
             StartCoroutine(ProcessAutoMoveSequence(sequence, player));
         }
+
         public IEnumerator ProcessAutoMoveSequence(List<Vector2> moves, OOPPlayer player)
         {
-            player.isAutoMoving = true;
+            if (player == null) yield break;
 
-            // 1. เตรียม Queue: ล้าง Queue เดิมและเพิ่มลำดับการเคลื่อนที่ใหม่
+            player.isAutoMoving = true;
             autoMoveQueue.Clear();
+
             foreach (var move in moves)
             {
                 autoMoveQueue.Enqueue(move);
@@ -114,25 +121,24 @@ namespace Solution
 
             Debug.Log($"Auto-move sequence started with {autoMoveQueue.Count} steps.");
 
-            // 2. ประมวลผล Queue ทีละขั้นตอน
             while (autoMoveQueue.Count > 0)
             {
-                // ดึงทิศทางถัดไปจาก Queue (Dequeue)
-                Vector2 nextDirection = autoMoveQueue.Dequeue();
+                if (player == null) break;
 
-                // ทำการเคลื่อนที่ (สมมติว่า TryMove() หรือ Move() คือเมธอดที่ใช้)
+                Vector2 nextDirection = autoMoveQueue.Dequeue();
                 player.Move(nextDirection);
 
-                // รอ (Yield) เป็นเวลา moveDelay วินาที ก่อนดำเนินการขั้นตอนถัดไป
-                // ทำให้เห็นการเคลื่อนที่ทีละขั้นตอน
                 yield return new WaitForSeconds(0.5f);
             }
-            player.isAutoMoving = false;
+
+            if (player != null)
+            {
+                player.isAutoMoving = false;
+            }
+
             Debug.Log("Auto-move sequence finished.");
         }
 
         #endregion
-
     }
 }
-

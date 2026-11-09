@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "D:\\Unity\\gi262-2025-workshop\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\unity\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\oop\\oopplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\oop\\oopplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\unity\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\stackqueue\\actionhistorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\stackqueue\\actionhistorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FCF2DBFE-C558-956C-46AC-69D9C4A3D38E}|asset-store-tools-editor.csproj|d:\\unity\\gi262-2025-workshop\\packages\\com.unity.asset-store-tools\\editor\\validator\\scripts\\test methods\\generic\\checkaudioclipping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FCF2DBFE-C558-956C-46AC-69D9C4A3D38E}|asset-store-tools-editor.csproj|D:\\Unity\\gi262-2025-workshop\\packages\\com.unity.asset-store-tools\\editor\\validator\\scripts\\test methods\\generic\\checkaudioclipping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FCF2DBFE-C558-956C-46AC-69D9C4A3D38E}|asset-store-tools-editor.csproj|solutionrelative:packages\\com.unity.asset-store-tools\\editor\\validator\\scripts\\test methods\\generic\\checkaudioclipping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -23,6 +27,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "OOPPlayer.cs",
+              "DocumentMoniker": "D:\\Unity\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\OOPPlayer.cs",
+              "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\OOP\\OOPPlayer.cs",
+              "ToolTip": "D:\\Unity\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\OOPPlayer.cs",
+              "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\OOP\\OOPPlayer.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAowDIAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-10T06:20:48.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "ActionHistoryManager.cs",
               "DocumentMoniker": "D:\\Unity\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\StackQueue\\ActionHistoryManager.cs",
               "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\StackQueue\\ActionHistoryManager.cs",
@@ -35,7 +52,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CheckAudioClipping.cs",
               "DocumentMoniker": "D:\\Unity\\gi262-2025-workshop\\Packages\\com.unity.asset-store-tools\\Editor\\Validator\\Scripts\\Test Methods\\Generic\\CheckAudioClipping.cs",
               "RelativeDocumentMoniker": "Packages\\com.unity.asset-store-tools\\Editor\\Validator\\Scripts\\Test Methods\\Generic\\CheckAudioClipping.cs",
@@ -43,8 +60,7 @@
               "RelativeToolTip": "Packages\\com.unity.asset-store-tools\\Editor\\Validator\\Scripts\\Test Methods\\Generic\\CheckAudioClipping.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAIwCgAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-10T06:11:58.643Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-10T06:11:58.643Z"
             }
           ]
         }

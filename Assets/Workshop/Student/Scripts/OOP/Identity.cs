@@ -2,7 +2,10 @@
 
 namespace Solution
 {
-
+    /// <summary>
+    /// Base class for every object placed on the dungeon grid.
+    /// The map generator stores these objects in its Identity[,] map.
+    /// </summary>
     public class Identity : MonoBehaviour
     {
         [Header("Identity")]
@@ -12,20 +15,21 @@ namespace Solution
 
         public OOPMapGenerator mapGenerator;
 
-        public void Start()
+        private void Start()
         {
             SetUP();
         }
+
         public virtual void SetUP()
         {
-
-
         }
+
         public void PrintInfo()
         {
-            Debug.Log("created " + Name +" at "+positionX + ":"+positionY);
+            Debug.Log(
+                "Created " + Name + " at " + positionX + ":" + positionY);
         }
-        
+
         public virtual bool Hit()
         {
             return false;

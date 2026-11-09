@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Solution {
+namespace Solution
+{
     public class Inventory : MonoBehaviour
     {
         public Dictionary<string, int> inventory = new Dictionary<string, int>();
@@ -9,6 +10,8 @@ namespace Solution {
         // เพิ่มไอเท็ม
         public void AddItem(string item, int amount)
         {
+            if (amount <= 0) return;
+
             // 1. ตรวจสอบว่ามีไอเท็มนี้ในคลังแล้วหรือยัง
             if (inventory.ContainsKey(item))
             {
@@ -23,10 +26,12 @@ namespace Solution {
             Debug.Log("Added " + amount + " " + item + ". Total: " + inventory[item]);
         }
 
-        // ลบไอเท็ม
+        // ลบไอเท็ม / ใช้ไอเท็ม
         public void UseItem(string item, int amount)
         {
-            //4. ตรวจสอบว่ามีไอเท็มนี้ในคลังหรือไม่
+            if (amount <= 0) return;
+
+            // 4. ตรวจสอบว่ามีไอเท็มนี้ในคลังหรือไม่
             if (inventory.ContainsKey(item))
             {
                 // ลบจำนวนไอเท็มออก
@@ -48,15 +53,17 @@ namespace Solution {
                 Debug.Log("Cannot remove " + item + ". Not found in inventory.");
             }
         }
+
         public bool HasItem(string item, int amount)
         {
-            //2. ตรวจสอบว่ามีไอเท็มนี้ในคลังหรือไม่ และมีจำนวนเพียงพอหรือไม่
+            // 2. ตรวจสอบว่ามีไอเท็มนี้ในคลังหรือไม่ และมีจำนวนเพียงพอหรือไม่
             return inventory.ContainsKey(item) && inventory[item] >= amount;
         }
+
         // ตรวจสอบจำนวนไอเท็ม
         public int GetItemCount(string item)
         {
-            //3. ตรวจสอบว่ามีไอเท็มนี้ในคลังหรือไม่ ถ้ามีให้คืนค่าจำนวนไอเท็มนั้น
+            // 3. ตรวจสอบว่ามีไอเท็มนี้ในคลังหรือไม่ ถ้ามีให้คืนค่าจำนวนไอเท็มนั้น
             if (inventory.ContainsKey(item))
             {
                 return inventory[item];
@@ -81,4 +88,3 @@ namespace Solution {
         }
     }
 }
-

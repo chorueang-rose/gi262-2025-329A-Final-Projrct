@@ -3,32 +3,53 @@ using UnityEngine;
 
 namespace Solution
 {
-
     public class OOPEnemy : Character
     {
         public TMP_Text txtHp;
+
         public override void SetUP()
         {
             base.SetUP();
             PrintInfo();
             GetRemainEnergy();
-            txtHp.text = energy.ToString();
+
+            if (txtHp != null)
+            {
+                txtHp.text = energy.ToString();
+            }
         }
+
         public override bool Hit()
         {
-            mapGenerator.player.Attack(this);
-            this.Attack(mapGenerator.player);
+            if (mapGenerator != null && mapGenerator.player != null)
+            {
+                // ผู้เล่นโจมตีศัตรู
+                mapGenerator.player.Attack(this);
+
+                // เช็คว่าถ้าศัตรูยังไม่ตาย ค่อยโจมตีผู้เล่นสวนกลับ
+                if (isAlive && energy > 0)
+                {
+                    Attack(mapGenerator.player);
+                }
+            }
+
             return false;
         }
 
         public void Attack(OOPPlayer _player)
         {
-            _player.TakeDamage(AttackPoint);
+            if (_player != null)
+            {
+                _player.TakeDamage(AttackPoint);
+            }
         }
+
         public override void TakeDamage(int damage)
         {
             base.TakeDamage(damage);
-            if (txtHp != null) {
+
+            if (txtHp != null)
+            {
                 txtHp.text = energy.ToString();
             }
         }
@@ -37,41 +58,59 @@ namespace Solution
         {
             if (energy <= 0)
             {
-                mapGenerator.mapdata[positionX, positionY] = null;
-                mapGenerator.EnemysOnMap.Remove(this);
+                isAlive = false;
+
+                if (mapGenerator != null)
+                {
+                    if (mapGenerator.mapdata != null &&
+                        positionX >= 0 && positionX < mapGenerator.X &&
+                        positionY >= 0 && positionY < mapGenerator.Y)
+                    {
+                        mapGenerator.mapdata[positionX, positionY] = null;
+                    }
+
+                    if (mapGenerator.EnemysOnMap != null)
+                    {
+                        mapGenerator.EnemysOnMap.Remove(this);
+                    }
+                }
+
                 Destroy(gameObject);
             }
         }
 
         public void RandomMove()
         {
+            if (!isAlive) return;
+
             int toX = positionX;
             int toY = positionY;
             int random = Random.Range(0, 4);
+
             switch (random)
             {
                 case 0:
-                    // up
+                    // Up
                     toY += 1;
                     break;
                 case 1:
-                    // down 
+                    // Down
                     toY -= 1;
                     break;
                 case 2:
-                    // left
+                    // Left
                     toX -= 1;
                     break;
                 case 3:
-                    // right
+                    // Right
                     toX += 1;
                     break;
             }
+
             if (!HasPlacement(toX, toY))
             {
                 UpdatePosition(toX, toY);
             }
         }
-        
     }
 }
