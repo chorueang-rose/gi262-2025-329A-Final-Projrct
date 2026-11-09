@@ -11,10 +11,8 @@ namespace Solution
     {
         public static Player Instance { get; private set; }
 
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
-
             if (Instance != null && Instance != this)
             {
                 Destroy(gameObject);
@@ -24,14 +22,12 @@ namespace Solution
             Instance = this;
         }
 
-        protected override void OnDestroy()
+        private void OnDestroy()
         {
             if (Instance == this)
             {
                 Instance = null;
             }
-
-            base.OnDestroy();
         }
     }
 }

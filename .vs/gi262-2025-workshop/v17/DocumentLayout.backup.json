@@ -1,18 +1,82 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Unity\\gi262-2025-workshop\\",
+  "WorkspaceRootPath": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\unity\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\oop\\oopplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\gi262_week01_1670706769\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\oop\\oopplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\oop\\oopplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\unity\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\stackqueue\\actionhistorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\gi262_week01_1670706769\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\oop\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\oop\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\gi262_week01_1670706769\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\oop\\keyitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\oop\\keyitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\gi262_week01_1670706769\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\dictionary\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\dictionary\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\gi262_week01_1670706769\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\dictionary\\collectableitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\dictionary\\collectableitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\gi262_week01_1670706769\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\oop\\oopexit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\oop\\oopexit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\gi262_week01_1670706769\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\oop\\oopmapgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\oop\\oopmapgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\gi262_week01_1670706769\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\tree\\ui\\skillnodeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\tree\\ui\\skillnodeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\gi262_week01_1670706769\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\oop\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\oop\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\gi262_week01_1670706769\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\stackqueue\\actionhistorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\stackqueue\\actionhistorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FCF2DBFE-C558-956C-46AC-69D9C4A3D38E}|asset-store-tools-editor.csproj|D:\\Unity\\gi262-2025-workshop\\packages\\com.unity.asset-store-tools\\editor\\validator\\scripts\\test methods\\generic\\checkaudioclipping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FCF2DBFE-C558-956C-46AC-69D9C4A3D38E}|asset-store-tools-editor.csproj|solutionrelative:packages\\com.unity.asset-store-tools\\editor\\validator\\scripts\\test methods\\generic\\checkaudioclipping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\gi262_week01_1670706769\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\oop\\oopenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\oop\\oopenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\gi262_week01_1670706769\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\oop\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\oop\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\gi262_week01_1670706769\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\oop\\sceneeventmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\oop\\sceneeventmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\gi262_week01_1670706769\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\oop\\elementalpotion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\oop\\elementalpotion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\gi262_week01_1670706769\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\oop\\potionitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\oop\\potionitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\gi262_week01_1670706769\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\oop\\itemtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\oop\\itemtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\gi262_week01_1670706769\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\oop\\itembase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\oop\\itembase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\gi262_week01_1670706769\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\oop\\identity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\oop\\identity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|d:\\gi262_week01_1670706769\\gi262-2025-workshop\\assets\\workshop\\student\\scripts\\linkedlist\\zombieparade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A34B4A4B-84DE-310D-4B69-66E296A72DDC}|Assembly-CSharp.csproj|solutionrelative:assets\\workshop\\student\\scripts\\linkedlist\\zombieparade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +86,254 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SkillNodeUI.cs",
+              "DocumentMoniker": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\Tree\\UI\\SkillNodeUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\Tree\\UI\\SkillNodeUI.cs",
+              "ToolTip": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\Tree\\UI\\SkillNodeUI.cs",
+              "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\Tree\\UI\\SkillNodeUI.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T16:07:52.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ActionHistoryManager.cs",
+              "DocumentMoniker": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\StackQueue\\ActionHistoryManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\StackQueue\\ActionHistoryManager.cs",
+              "ToolTip": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\StackQueue\\ActionHistoryManager.cs",
+              "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\StackQueue\\ActionHistoryManager.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAowI8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T16:02:09.21Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "OOPPlayer.cs",
-              "DocumentMoniker": "D:\\Unity\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\OOPPlayer.cs",
+              "DocumentMoniker": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\OOPPlayer.cs",
               "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\OOP\\OOPPlayer.cs",
-              "ToolTip": "D:\\Unity\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\OOPPlayer.cs",
+              "ToolTip": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\OOPPlayer.cs",
               "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\OOP\\OOPPlayer.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAowDIAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAtwFsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-10T06:20:48.547Z",
+              "WhenOpened": "2026-11-09T15:51:21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "OOPEnemy.cs",
+              "DocumentMoniker": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\OOPEnemy.cs",
+              "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\OOP\\OOPEnemy.cs",
+              "ToolTip": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\OOPEnemy.cs",
+              "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\OOP\\OOPEnemy.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAUwHMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T15:46:26.851Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OOPExit.cs",
+              "DocumentMoniker": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\OOPExit.cs",
+              "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\OOP\\OOPExit.cs",
+              "ToolTip": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\OOPExit.cs",
+              "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\OOP\\OOPExit.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAcwCEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T15:44:01.735Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "OOPMapGenerator.cs",
+              "DocumentMoniker": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\OOPMapGenerator.cs",
+              "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\OOP\\OOPMapGenerator.cs",
+              "ToolTip": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\OOPMapGenerator.cs",
+              "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\OOP\\OOPMapGenerator.cs",
+              "ViewState": "AgIAAPwAAAAAAAAAAAAIwBwBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T15:40:30.963Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Player.cs",
+              "DocumentMoniker": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\Player.cs",
+              "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\OOP\\Player.cs",
+              "ToolTip": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\Player.cs",
+              "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\OOP\\Player.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T15:39:24.933Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ActionHistoryManager.cs",
-              "DocumentMoniker": "D:\\Unity\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\StackQueue\\ActionHistoryManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\StackQueue\\ActionHistoryManager.cs",
-              "ToolTip": "D:\\Unity\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\StackQueue\\ActionHistoryManager.cs",
-              "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\StackQueue\\ActionHistoryManager.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\OOP\\GameManager.cs",
+              "ToolTip": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\OOP\\GameManager.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAqwFEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-10T06:19:31.085Z",
+              "WhenOpened": "2026-11-09T15:38:33.245Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CheckAudioClipping.cs",
-              "DocumentMoniker": "D:\\Unity\\gi262-2025-workshop\\Packages\\com.unity.asset-store-tools\\Editor\\Validator\\Scripts\\Test Methods\\Generic\\CheckAudioClipping.cs",
-              "RelativeDocumentMoniker": "Packages\\com.unity.asset-store-tools\\Editor\\Validator\\Scripts\\Test Methods\\Generic\\CheckAudioClipping.cs",
-              "ToolTip": "D:\\Unity\\gi262-2025-workshop\\Packages\\com.unity.asset-store-tools\\Editor\\Validator\\Scripts\\Test Methods\\Generic\\CheckAudioClipping.cs",
-              "RelativeToolTip": "Packages\\com.unity.asset-store-tools\\Editor\\Validator\\Scripts\\Test Methods\\Generic\\CheckAudioClipping.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAIwCgAAAA8AAAAAAAAAA==",
+              "Title": "KeyItem.cs",
+              "DocumentMoniker": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\KeyItem.cs",
+              "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\OOP\\KeyItem.cs",
+              "ToolTip": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\KeyItem.cs",
+              "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\OOP\\KeyItem.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwCgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-10T06:11:58.643Z"
+              "WhenOpened": "2026-11-09T15:32:10.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Inventory.cs",
+              "DocumentMoniker": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\Dictionary\\Inventory.cs",
+              "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\Dictionary\\Inventory.cs",
+              "ToolTip": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\Dictionary\\Inventory.cs",
+              "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\Dictionary\\Inventory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T15:19:36.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "collectAbleItem.cs",
+              "DocumentMoniker": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\Dictionary\\collectAbleItem.cs",
+              "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\Dictionary\\collectAbleItem.cs",
+              "ToolTip": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\Dictionary\\collectAbleItem.cs",
+              "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\Dictionary\\collectAbleItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T15:16:02.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SceneEventManager.cs",
+              "DocumentMoniker": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\SceneEventManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\OOP\\SceneEventManager.cs",
+              "ToolTip": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\SceneEventManager.cs",
+              "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\OOP\\SceneEventManager.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAqwEUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T15:36:30.363Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ElementalPotion.cs",
+              "DocumentMoniker": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\ElementalPotion.cs",
+              "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\OOP\\ElementalPotion.cs",
+              "ToolTip": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\ElementalPotion.cs",
+              "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\OOP\\ElementalPotion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T15:35:43.001Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Character.cs",
+              "DocumentMoniker": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\Character.cs",
+              "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\OOP\\Character.cs",
+              "ToolTip": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\Character.cs",
+              "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\OOP\\Character.cs",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAIwLkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T15:23:44.67Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PotionItem.cs",
+              "DocumentMoniker": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\PotionItem.cs",
+              "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\OOP\\PotionItem.cs",
+              "ToolTip": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\PotionItem.cs",
+              "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\OOP\\PotionItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T15:34:38.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ItemTypes.cs",
+              "DocumentMoniker": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\ItemTypes.cs",
+              "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\OOP\\ItemTypes.cs",
+              "ToolTip": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\ItemTypes.cs",
+              "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\OOP\\ItemTypes.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T15:30:23.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Identity.cs",
+              "DocumentMoniker": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\Identity.cs",
+              "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\OOP\\Identity.cs",
+              "ToolTip": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\Identity.cs",
+              "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\OOP\\Identity.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T15:28:17.812Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ItemBase.cs",
+              "DocumentMoniker": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\ItemBase.cs",
+              "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\OOP\\ItemBase.cs",
+              "ToolTip": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\OOP\\ItemBase.cs",
+              "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\OOP\\ItemBase.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAArwC8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T15:24:49.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ZombieParade.cs",
+              "DocumentMoniker": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\LinkedList\\ZombieParade.cs",
+              "RelativeDocumentMoniker": "Assets\\Workshop\\Student\\Scripts\\LinkedList\\ZombieParade.cs",
+              "ToolTip": "D:\\GI262_week01_1670706769\\gi262-2025-workshop\\Assets\\Workshop\\Student\\Scripts\\LinkedList\\ZombieParade.cs",
+              "RelativeToolTip": "Assets\\Workshop\\Student\\Scripts\\LinkedList\\ZombieParade.cs",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAqwLEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T15:21:26.075Z",
+              "EditorCaption": ""
             }
           ]
         }

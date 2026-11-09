@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Principal;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Solution
 {
     public class ZombieParade : OOPEnemy
     {
         // ใช้ LinkedList ในการจัดการส่วนของงูเพื่อประสิทธิภาพในการเพิ่ม/ลบ
-        // ใช้ LinkedList ในการจัดการส่วนของงูเพื่อประสิทธิภาพในการเพิ่ม/ลบ
         private LinkedList<GameObject> Parade = new LinkedList<GameObject>();
         public int SizeParade = 3;
-        int timer = 0;
+        private int timer = 0;
         public GameObject[] bodyPrefab; // Prefab ของส่วนลำตัวงู
         public float moveInterval = 0.5f; // ช่วงเวลาในการเคลื่อนที่ (0.5 วินาที)
 
@@ -20,11 +21,15 @@ namespace Solution
         {
             base.SetUP();
             moveDirection = Vector3.up;
-            // เริ่ม Coroutine สำหรับการเคลื่อนที่
+
+            // ตั้งค่าตำแหน่งเริ่มต้นให้ถูกต้องทั้ง X และ Y
             positionX = (int)transform.position.x;
-            positionX = (int)transform.position.y;
+            positionY = (int)transform.position.y;
+
+            // เริ่ม Coroutine สำหรับการเคลื่อนที่
             StartCoroutine(MoveParade());
         }
+
         private Vector3 RandomizeDirection()
         {
             List<Vector3> possibleDirections = new List<Vector3>
@@ -37,58 +42,102 @@ namespace Solution
 
             return possibleDirections[Random.Range(0, possibleDirections.Count)];
         }
+
         // Coroutine สำหรับการเคลื่อนที่ทีละช่อง
         IEnumerator MoveParade()
-        {      
-            //0. สร้างหัวงู
+        {
+            // 0. ใส่ส่วนหัวงูเข้า LinkedList
             Parade.AddFirst(this.gameObject);
+
             while (isAlive)
             {
-                // 1. ดึงส่วนแรกของงูออกมา
-                LinkedListNode<GameObject> firstNode = Parade.First;
-                GameObject firstPart = firstNode.Value;
+                // 1. ดึงส่วนหัวงู
+                GameObject firstPart = Parade.First.Value;
 
-                // 2. ดึงส่วนสุดท้ายของงูออกมา
-                LinkedListNode<GameObject> lastNode = Parade.Last;
-                GameObject lastPart = lastNode.Value;
-             
-                // 3. ลบส่วนสุดท้ายออกจาก LinkedList
-                Parade.RemoveLast();
-
-                // 5. กำหนดตำแหน่งและทิศทางของส่วนที่ถูกย้ายมาใหม่
-                // ให้ไปอยู่ที่ตำแหน่งของส่วนหัวงู (ซึ่งเพิ่งเคลื่อนที่ไปเมื่อครู่)
-                int toX = 0;
-                int toY = 0;
-
+                int toX = positionX;
+                int toY = positionY;
                 bool isCollide = true;
                 int countTryToFind = 0;
-                while (isCollide == true || countTryToFind>10)
+
+                // สุ่มหาทิศทางเดินที่ไม่ชน (ลองสูงสุด 10 ครั้ง)
+                while (isCollide && countTryToFind < 10)
                 {
                     moveDirection = RandomizeDirection();
                     toX = (int)(firstPart.transform.position.x + moveDirection.x);
                     toY = (int)(firstPart.transform.position.y + moveDirection.y);
                     countTryToFind++;
-                    if (countTryToFind > 10) { 
-                        toX = positionX;
-                        toY = positionY;
-                    }
+
                     isCollide = IsCollision(toX, toY);
                 }
 
-                //6. เคลื่อนที่
-                mapGenerator.mapdata[positionX, positionY] = null;
-                positionX = toX;
-                positionY = toY;
-                lastPart.transform.position = new Vector3(positionX, positionY, 0);
-                lastPart.GetComponent<SpriteRenderer>().flipX = moveDirection == Vector3.right;
-                mapGenerator.mapdata[positionX, positionY] = lastPart.GetComponent<Identity>();
+                // ถ้าสุ่มครบ 10 ครั้งแล้วยังชนอยู่ ให้เดินช่องเดิม
+                if (isCollide)
+                {
+                    toX = positionX;
+                    toY = positionY;
+                }
 
+                // 2. เคลื่อนย้ายส่วนหางสุดมาไว้ที่หัว หรือเคลื่อนย้ายตำแหน่ง
+                if (Parade.Count > 1)
+                {
+                    // ถ้างูมีลำตัว ให้ลบหางออกแล้วย้ายมาเป็นส่วนหน้า
+                    GameObject lastPart = Parade.Last.Value;
+                    Parade.RemoveLast();
 
-                // 7. เพิ่มส่วนนั้นกลับเข้าไปเป็นส่วนที่สองของ LinkedList
-                // (ซึ่งก็คือส่วนแรกของลำตัว)
-                Parade.AddFirst(lastNode);
-                // รอตามเวลาที่กำหนดก่อนการเคลื่อนที่ครั้งต่อไป
-                if (Parade.Count < SizeParade) {
+                    // เคลียร์ตำแหน่งเก่าบน mapData
+                    if (mapGenerator != null && mapGenerator.mapdata != null)
+                    {
+                        mapGenerator.mapdata[positionX, positionY] = null;
+                    }
+
+                    positionX = toX;
+                    positionY = toY;
+
+                    lastPart.transform.position = new Vector3(positionX, positionY, 0);
+
+                    SpriteRenderer sr = lastPart.GetComponent<SpriteRenderer>();
+                    if (sr != null)
+                    {
+                        sr.flipX = (moveDirection == Vector3.right);
+                    }
+
+                    // อัปเดตตำแหน่งใหม่บน mapData
+                    Identity identity = lastPart.GetComponent<Identity>();
+                    if (identity != null && mapGenerator != null)
+                    {
+                        mapGenerator.mapdata[positionX, positionY] = identity;
+                    }
+
+                    Parade.AddFirst(lastPart);
+                }
+                else
+                {
+                    // ถ้างูมีแค่หัวตัวเดียว เคลื่อนที่หัวตรงๆ
+                    if (mapGenerator != null && mapGenerator.mapdata != null)
+                    {
+                        mapGenerator.mapdata[positionX, positionY] = null;
+                    }
+
+                    positionX = toX;
+                    positionY = toY;
+
+                    transform.position = new Vector3(positionX, positionY, 0);
+
+                    SpriteRenderer sr = GetComponent<SpriteRenderer>();
+                    if (sr != null)
+                    {
+                        sr.flipX = (moveDirection == Vector3.right);
+                    }
+
+                    if (mapGenerator != null)
+                    {
+                        mapGenerator.mapdata[positionX, positionY] = this;
+                    }
+                }
+
+                // 3. เพิ่มความยาวลำตัวงูตามเงื่อนไขเวลา
+                if (Parade.Count < SizeParade)
+                {
                     timer++;
                     if (timer > 3)
                     {
@@ -96,31 +145,34 @@ namespace Solution
                         timer = 0;
                     }
                 }
+
                 yield return new WaitForSeconds(moveInterval);
             }
         }
+
         private bool IsCollision(int x, int y)
         {
-            // 4. ตรวจสอบสิ่งกีดขวาง
-            if (HasPlacement(x, y))
-            {
-                return true;
-            }
-            return false;
+            // ตรวจสอบสิ่งกีดขวาง
+            return HasPlacement(x, y);
         }
-        
+
         // ฟังก์ชันสำหรับเพิ่มส่วนของงู (Grow)
         private void Grow()
         {
+            if (bodyPrefab == null || bodyPrefab.Length == 0) return;
+
             GameObject newPart = Instantiate(bodyPrefab[0]);
-            // กำหนดตำแหน่งเริ่มต้นของส่วนใหม่ให้อยู่ที่เดียวกับส่วนสุดท้ายของงู
             GameObject lastPart = Parade.Last.Value;
+
             newPart.transform.position = lastPart.transform.position;
-            mapGenerator.SetUpItem(positionX,positionY, newPart, mapGenerator.enemyParent, mapGenerator.enemy);
-            //newPart.transform.rotation = lastPart.transform.rotation;
-            // เพิ่มส่วนใหม่เข้าไปใน Linked List
+
+            if (mapGenerator != null)
+            {
+                mapGenerator.SetUpItem(positionX, positionY, newPart, mapGenerator.enemyParent, mapGenerator.enemy);
+            }
+
+            // เพิ่มส่วนใหม่เข้าไปใน Linked List ต่อท้ายสุด
             Parade.AddLast(newPart);
         }
-
     }
 }

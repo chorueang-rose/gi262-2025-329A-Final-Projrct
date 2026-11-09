@@ -1,6 +1,4 @@
-﻿using System.Security.Principal;
-using UnityEngine;
-using UnityEngine.UIElements;
+﻿using UnityEngine;
 
 namespace Solution
 {
@@ -10,20 +8,22 @@ namespace Solution
         {
             Debug.Log("Item: " + Name + " has been picked up.");
 
-            // เพิ่มไอเทมเข้ากระเป๋าผู้เล่น
-            mapGenerator.player.inventory.AddItem(Name, 1);
+            // 1. เพิ่มไอเทมเข้ากระเป๋าผู้เล่น (ส่งชื่อ และ จำนวน 1 ชิ้น)
+            if (mapGenerator != null && mapGenerator.player != null && mapGenerator.player.inventory != null)
+            {
+                mapGenerator.player.inventory.AddItem(Name, 1);
+            }
 
-            // เคลียร์ตำแหน่งไอเทมออกจากตาราง mapData ก่อน
-            if (mapGenerator != null)
+            // 2. เคลียร์ตำแหน่งไอเทมออกจากตาราง mapdata
+            if (mapGenerator != null && mapGenerator.mapdata != null)
             {
                 mapGenerator.mapdata[positionX, positionY] = null;
             }
 
-            // ทำลายไอเท็มออกจากฉาก
+            // 3. ทำลายไอเทมออกจากฉาก
             Destroy(gameObject);
 
             return true;
         }
     }
 }
-

@@ -2,7 +2,6 @@
 
 namespace Solution
 {
-
     public class OOPWall : Identity
     {
         public int Damage;
@@ -10,22 +9,25 @@ namespace Solution
 
         private void Start()
         {
-            IsIceWall = Random.Range(0, 100) < 20 ? true : false;
+            IsIceWall = Random.Range(0, 100) < 20;
+
             if (IsIceWall)
             {
                 GetComponent<SpriteRenderer>().color = Color.blue;
             }
         }
+
         public override bool Hit()
         {
             if (IsIceWall)
             {
-                mapGenerator.player.TakeDamage(Damage, IsIceWall);
+                mapGenerator.player.TakeDamage(Damage, this);
             }
             else
             {
                 mapGenerator.player.TakeDamage(Damage);
             }
+
             mapGenerator.mapdata[positionX, positionY] = null;
             Destroy(gameObject);
             return false;

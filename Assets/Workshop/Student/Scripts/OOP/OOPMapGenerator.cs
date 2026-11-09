@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,6 +33,9 @@ namespace Solution
         public GameObject[] EnemyPrefab;
         public GameObject[] SkillPrefab;
 
+        [Header("Set Key Item Prefab")]
+        public GameObject keyItemPrefab; // ช่องสำหรับลาก Prefab กุญแจมาใส่ใน Inspector
+
         [Header("Set Transform")]
         public Transform floorParent;
         public Transform wallParent;
@@ -43,7 +46,7 @@ namespace Solution
         public int obstacleCount;
         public int itemPotionCount;
         public int collectItemCount;
-        public int EnemyCount;
+        public int EnemyCount = 3;
         public int SkillCount;
 
         public Identity[,] mapdata;
@@ -81,6 +84,15 @@ namespace Solution
             PlaceItemsOnMap(obstacleCount, demonWallsPrefab, wallParent, demonWall);
             PlaceItemsOnMap(collectItemCount, collectItemsPrefab, itemParent, collectItem);
             PlaceItemsOnMap(SkillCount, SkillPrefab, itemParent, collectItem);
+
+            // 🔑 สร้างกุญแจ 1 ดอกสุ่มลงบนแผนที่
+            if (keyItemPrefab != null)
+            {
+                PlaceItemsOnMap(1, new GameObject[] { keyItemPrefab }, itemParent, collectItem);
+            }
+
+            // สเปอว์นศัตรูลงบนแผนที่
+            PlaceItemsOnMap(EnemyCount, EnemyPrefab, enemyParent, enemy);
 
             yield return new WaitForSeconds(0.5f);
             RandomDamageToListEnemies();
@@ -238,11 +250,14 @@ namespace Solution
 
         public OOPEnemy[] GetEnemies()
         {
+            EnemysOnMap.RemoveAll(e => e == null);
             return EnemysOnMap.ToArray();
         }
 
         public void MoveEnemies()
         {
+            EnemysOnMap.RemoveAll(e => e == null);
+
             foreach (var enemyObj in EnemysOnMap)
             {
                 if (enemyObj != null)
@@ -254,7 +269,9 @@ namespace Solution
 
         public void RandomDamageToListEnemies()
         {
+            EnemysOnMap.RemoveAll(e => e == null);
             Debug.Log($"Damage to {EnemysOnMap.Count} EnemysOnMap");
+
             foreach (var enemyObj in EnemysOnMap)
             {
                 if (enemyObj != null)

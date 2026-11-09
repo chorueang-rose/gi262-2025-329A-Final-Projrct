@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -126,7 +127,7 @@ namespace Solution
                 if (player == null) break;
 
                 Vector2 nextDirection = autoMoveQueue.Dequeue();
-                player.Move(nextDirection);
+                player.Move((int)nextDirection.x, (int)nextDirection.y);
 
                 yield return new WaitForSeconds(0.5f);
             }
@@ -137,6 +138,11 @@ namespace Solution
             }
 
             Debug.Log("Auto-move sequence finished.");
+        }
+
+        internal void RecordMove(int positionX, int positionY)
+        {
+            SaveStateForUndo(new Vector2(positionX, positionY));
         }
 
         #endregion

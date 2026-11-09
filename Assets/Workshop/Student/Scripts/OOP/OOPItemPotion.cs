@@ -20,7 +20,7 @@ namespace Solution
         {
             if (isBonues)
             {
-                mapGenerator.player.Heal(healPoint, isBonues);
+                mapGenerator.player.Heal(healPoint * 2);
                 Debug.Log("You got " + Name + " Bonues : " + healPoint * 2);
             }
             else
@@ -28,7 +28,6 @@ namespace Solution
                 mapGenerator.player.Heal(healPoint);
                 Debug.Log("You got " + Name + " : " + healPoint);
             }
-
 
             mapGenerator.mapdata[positionX, positionY] = null;
             

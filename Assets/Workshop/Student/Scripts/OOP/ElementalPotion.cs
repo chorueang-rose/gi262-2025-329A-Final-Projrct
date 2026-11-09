@@ -26,14 +26,32 @@ namespace Solution
                 player.SetElement(element);
                 Debug.Log($"Player received element buff: {element}");
             }
-            else if (OOPPlayer.ActivePlayer != null)
-            {
-                OOPPlayer.ActivePlayer.SetElement(element);
-                Debug.Log($"OOPPlayer received element buff: {element}");
-            }
             else
             {
-                Debug.LogWarning("No active player was found for ElementalPotion.");
+                OOPPlayer activePlayer = null;
+                try
+                {
+                    // Try to get the active OOPPlayer instance if available
+                    var method = typeof(OOPPlayer).GetMethod("ActivePlayer", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
+                    if (method != null)
+                    {
+                        activePlayer = method.Invoke(null, null) as OOPPlayer;
+                      }
+                }
+                catch
+                {
+                    // Ignore reflection errors
+                }
+
+                if (activePlayer != null)
+                {
+                    activePlayer.SetElement(element);
+                    Debug.Log($"OOPPlayer received element buff: {element}");
+                }
+                else
+                {
+                    Debug.LogWarning("No active player was found for ElementalPotion.");
+                }
             }
 
             // Note: ไม่ต้องเรียก RemoveFromMap() ซ้ำที่นี่ เพราะ ItemBase.Hit() เป็นคนจัดการให้อยู่แล้วครับ

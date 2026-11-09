@@ -2,36 +2,40 @@ using UnityEngine;
 
 namespace Solution
 {
-    /// <summary>
-    /// Collecting a key updates GameManager and unlocks the scene exit.
-    /// </summary>
-    public sealed class KeyItem : ItemBase
+    public class KeyItem : Identity
     {
-        [SerializeField]
-        private OOPExit exit;
+        public string ItemType = "Key";
+        public OOPExit Exit;
 
-        public override void OnPlayerCollect()
+        public override void SetUP()
         {
-            if (GameManager.Instance == null)
+            base.SetUP();
+            Name = "Key";
+        }
+
+        public override bool Hit()
+        {
+            // ใช้ FindObjectOfType เพื่อให้รองรับ Unity ทุกเวอร์ชัน (แก้ Error CS0619)
+            if (Exit == null)
             {
-                Debug.LogError("KeyItem requires a GameManager in the scene.");
-                return;
+                Exit = FindObjectOfType<OOPExit>();
             }
 
-            // เพิ่มจำนวนกุญแจเข้า GameManager
-            GameManager.Instance.AddKey();
-
-            // ค้นหา OOPExit หากไม่ได้กำหนดไว้ใน Inspector
-            OOPExit targetExit = exit != null
-                ? exit
-                : FindFirstObjectByType<OOPExit>();
-
-            if (targetExit != null)
+            // สั่งปลดล็อกประตูทางออก
+            if (Exit != null)
             {
-                targetExit.Unlock();
+                Exit.Unlock();
+                Debug.Log("ทางออกปลดล็อกแล้ว!");
             }
 
-            // Note: ไม่ต้องสั่ง RemoveFromMap() ที่นี่ เพราะ ItemBase.Hit() เป็นคนจัดการให้อยู่แล้วครับ
+            // ลบกุญแจออกจากระบบ Grid
+            if (mapGenerator != null && mapGenerator.mapdata != null)
+            {
+                mapGenerator.mapdata[positionX, positionY] = null;
+            }
+
+            Destroy(gameObject);
+            return true;
         }
     }
 }

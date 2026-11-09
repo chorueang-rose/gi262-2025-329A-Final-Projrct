@@ -3,7 +3,17 @@ guid: b1ea12672d43a5547bca6d7ccbe75775
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {fileID: 5615206909734415387, guid: 4c033ef69eb269849bab9de975c465ed, type: 3}
+  - Npc: {fileID: 9025232857560474648, guid: f0158faaeec698c4fa8bd648add0080f, type: 3}
+  - NpcSkill: {instanceID: 0}
+  - Exit: {fileID: 5503489073733372733, guid: 317b12239e5391c4596a368f330b2fb6, type: 3}
+  - Wall: {instanceID: 0}
+  - keyItemPrefab: {fileID: 3173956647535010328, guid: 9cd6c568c3a68b74e913c0eb741260d9, type: 3}
+  - floorParent: {instanceID: 0}
+  - wallParent: {instanceID: 0}
+  - itemParent: {instanceID: 0}
+  - enemyParent: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

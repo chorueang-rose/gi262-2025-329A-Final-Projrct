@@ -145,6 +145,8 @@ MonoBehaviour:
   Y: 8
   player: {fileID: 0}
   playerStartPos: {x: 0, y: 0}
+  Npc: {fileID: 0}
+  NpcSkill: {fileID: 0}
   Exit: {fileID: 0}
   Wall: {fileID: 7920436258420930691, guid: b1361c167057d93419e387f0e521b453, type: 3}
   floorsPrefab:
@@ -177,13 +179,14 @@ MonoBehaviour:
   - {fileID: 7526888423267112248, guid: 29ce8b60ab4924b4aa2a04938a3ac50a, type: 3}
   SkillPrefab:
   - {fileID: 3173956647535010328, guid: 4a4c0b11b84e27645b814bfc329c052e, type: 3}
+  keyItemPrefab: {fileID: 0}
   floorParent: {fileID: 2017854439703414493}
   wallParent: {fileID: 5733433177445407064}
   itemParent: {fileID: 962238967185088404}
   enemyParent: {fileID: 4434576056516932926}
-  obsatcleCount: 5
+  obstacleCount: 0
   itemPotionCount: 2
-  colloctItemCount: 2
+  collectItemCount: 0
   EnemyCount: 5
   SkillCount: 1
   EnemysOnMap: []
@@ -195,6 +198,7 @@ MonoBehaviour:
   playerOnMap: player
   collectItem: collectItem
   enemy: enemy
+  npc: Npc
 --- !u!1 &7680843978735096706
 GameObject:
   m_ObjectHideFlags: 0
