@@ -10,7 +10,9 @@ public class PotionSpawner : MonoBehaviour
 
 
     [Header("Spawn Settings")]
-    public int potionCount = 5;
+    public int blueCount = 5;
+    public int greenCount = 2;
+    public int redCount = 5;
     public BoxCollider2D spawnArea;
 
     private List<GameObject> spawnedPotions =
@@ -33,27 +35,30 @@ public class PotionSpawner : MonoBehaviour
 
     void SpawnPotions()
     {
-        if (potionPrefabs == null || potionPrefabs.Length == 0)
+        if (spawnArea == null)
             return;
 
-        if (spawnArea == null)
+        SpawnPotion(bluePotionPrefab, blueCount);
+        SpawnPotion(greenPotionPrefab, greenCount);
+        SpawnPotion(redPotionPrefab, redCount);
+    }
+
+    void SpawnPotion(GameObject prefab, int count)
+    {
+        if (prefab == null)
             return;
 
         Bounds bounds = spawnArea.bounds;
 
-        for (int i = 0; i < potionCount; i++)
+        for (int i = 0; i < count; i++)
         {
-            GameObject randomPotion = potionPrefabs[
-                Random.Range(0, potionPrefabs.Length)
-            ];
-
             Vector2 randomPosition = new Vector2(
                 Random.Range(bounds.min.x, bounds.max.x),
                 Random.Range(bounds.min.y, bounds.max.y)
             );
 
             GameObject potion = Instantiate(
-                randomPotion,
+                prefab,
                 randomPosition,
                 Quaternion.identity
             );

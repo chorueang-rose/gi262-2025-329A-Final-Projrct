@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using TMPro;
 
 namespace Solution
 {
@@ -8,6 +9,7 @@ namespace Solution
         public int energy = 20;
         public int maxEnergy = 20;
         public int attackPoint = 10;
+        public TMP_Text damageText;
         public bool isAlive = true;
 
         // แก้ CS1061: ใช้ isAutoMoving (ตัวเล็ก) และ IsAutoMoving (ตัวใหญ่) เพื่อรองรับทุกสคริปต์
@@ -21,16 +23,49 @@ namespace Solution
         public bool redPotionActive = false;
         public bool greenPotionActive = false;
 
+        [Header("Potion Stack")]
+        public int greenMoveStacks = 0;
+        public TMP_Text greenStackText;
+
         public void ActivateRedPotion()
         {
             redPotionActive = true;
-            Debug.Log("Red Potion Activated!");
+
+            UpdateAttackUI();
+
+            Debug.Log("Red Potion Activated! Damage: " + (attackPoint * 2));
         }
 
         public void ActivateGreenPotion()
         {
+            greenMoveStacks++;
             greenPotionActive = true;
-            Debug.Log("Green Potion Activated!");
+
+            UpdateGreenStackUI();
+
+            Debug.Log("Green Potion Stack: " + greenMoveStacks);
+        }
+
+        private void UpdateGreenStackUI()
+        {
+            if (greenStackText != null)
+            {
+                greenStackText.text = "Double Move: " + greenMoveStacks;
+            }
+        }
+
+        private void UpdateAttackUI()
+        {
+            if (damageText != null)
+            {
+                int currentDamage = redPotionActive
+                    ? attackPoint * 2
+                    : attackPoint;
+
+                damageText.text = redPotionActive
+                    ? $"Damage: {attackPoint} → {currentDamage} (RED)"
+                    : $"Damage: {attackPoint}";
+            }
         }
 
         [Header("Components")]
@@ -45,8 +80,13 @@ namespace Solution
 
         private void Start()
         {
-            if (inventory == null) inventory = GetComponent<Inventory>();
-            if (actionHistoryManager == null) actionHistoryManager = GetComponent<ActionHistoryManager>();
+            if (inventory == null)
+                inventory = GetComponent<Inventory>();
+
+            if (actionHistoryManager == null)
+                actionHistoryManager = GetComponent<ActionHistoryManager>();
+
+            UpdateGreenStackUI();
         }
 
         // --- ฟังก์ชัน Heal รองรับ 1 และ 2 arguments ---
@@ -101,6 +141,33 @@ namespace Solution
                 return;
             }
 
+            int steps = greenMoveStacks > 0 ? 2 : 1;
+            bool movedAny = false;
+
+            for (int i = 0; i < steps; i++)
+            {
+                if (!MoveOneStep(deltaX, deltaY))
+                    break;
+
+                movedAny = true;
+
+                if (health != null && health.currentHealth <= 0)
+                {
+                    isAlive = false;
+                    break;
+                }
+            }
+
+            if (movedAny && greenMoveStacks > 0)
+            {
+                greenMoveStacks--;
+                greenPotionActive = greenMoveStacks > 0;
+                UpdateGreenStackUI();
+            }
+        }
+
+        private bool MoveOneStep(int deltaX, int deltaY)
+        {
             int targetX = positionX + deltaX;
             int targetY = positionY + deltaY;
 
@@ -110,50 +177,65 @@ namespace Solution
             {
                 // 1. เจอกุญแจ
                 KeyItem keyItem = targetObj.GetComponent<KeyItem>();
-                bool isKeyByName = targetObj.Name != null && targetObj.Name.ToLower().Contains("key");
+                bool isKeyByName = targetObj.Name != null &&
+                                   targetObj.Name.ToLower().Contains("key");
 
                 if (keyItem != null || isKeyByName)
                 {
-                    // แก้ CS0104: ระบุ UnityEngine.Object ชัดเจนป้องกันชื่อสับสน
-                    OOPExit exitObj = UnityEngine.Object.FindFirstObjectByType<OOPExit>();
-                    if (exitObj != null) exitObj.Unlock();
+                    OOPExit exitObj =
+                        UnityEngine.Object.FindFirstObjectByType<OOPExit>();
+
+                    if (exitObj != null)
+                        exitObj.Unlock();
 
                     mapGenerator.mapdata[targetX, targetY] = null;
                     Destroy(targetObj.gameObject);
 
                     MoveTo(targetX, targetY, deltaX, deltaY);
-                    return;
+                    return true;
                 }
 
-                // 2. เจอประตูทางออก
+                // 2. เจอประตู
                 OOPExit exit = targetObj.GetComponent<OOPExit>();
                 if (exit != null)
                 {
                     exit.Hit();
-                    return;
+                    return false;
                 }
 
-                // 3. เจอไอเทมทั่วไป
+                // 3. เจอไอเทม
                 CollectAbleItem item = targetObj.GetComponent<CollectAbleItem>();
                 if (item != null)
                 {
                     item.Hit();
                     MoveTo(targetX, targetY, deltaX, deltaY);
-                    return;
+                    return true;
                 }
 
                 // 4. เจอศัตรู
                 OOPEnemy enemy = targetObj.GetComponent<OOPEnemy>();
                 if (enemy != null)
                 {
-                    enemy.TakeDamage(attackPoint);
-                    return;
+                    int damage = redPotionActive
+                        ? attackPoint * 2
+                        : attackPoint;
+
+                    enemy.TakeDamage(damage);
+
+                    redPotionActive = false;
+
+                    UpdateAttackUI();
+
+                    Debug.Log("Player Damage: " + damage);
+
+                    return false;
                 }
 
-                return;
+                return false;
             }
 
             MoveTo(targetX, targetY, deltaX, deltaY);
+            return true;
         }
 
         // รองรับการเรียก MoveTo แบบ 2 พารามิเตอร์ และ 4 พารามิเตอร์
@@ -170,16 +252,17 @@ namespace Solution
             mapGenerator.mapdata[positionX, positionY] = this;
             transform.position = new Vector3(positionX, positionY, -0.1f);
 
-            
+
             HealthSystem health = GetComponent<HealthSystem>();
+
             if (health != null)
             {
                 health.TakeDamage(1);
-            }
 
-            if (health.currentHealth <= 0)
-            {
-                isAlive = false;
+                if (health.currentHealth <= 0)
+                {
+                    isAlive = false;
+                }
             }
 
 
