@@ -18,6 +18,21 @@ namespace Solution
             set => isAutoMoving = value;
         }
 
+        public bool redPotionActive = false;
+        public bool greenPotionActive = false;
+
+        public void ActivateRedPotion()
+        {
+            redPotionActive = true;
+            Debug.Log("Red Potion Activated!");
+        }
+
+        public void ActivateGreenPotion()
+        {
+            greenPotionActive = true;
+            Debug.Log("Green Potion Activated!");
+        }
+
         [Header("Components")]
         public Inventory inventory;
         public ActionHistoryManager actionHistoryManager;
@@ -78,7 +93,13 @@ namespace Solution
 
         public void Move(int deltaX, int deltaY)
         {
-            if (!isAlive) return;
+            HealthSystem health = GetComponent<HealthSystem>();
+
+            if (!isAlive || (health != null && health.currentHealth <= 0))
+            {
+                isAlive = false;
+                return;
+            }
 
             int targetX = positionX + deltaX;
             int targetY = positionY + deltaY;
@@ -149,6 +170,19 @@ namespace Solution
             mapGenerator.mapdata[positionX, positionY] = this;
             transform.position = new Vector3(positionX, positionY, -0.1f);
 
+            
+            HealthSystem health = GetComponent<HealthSystem>();
+            if (health != null)
+            {
+                health.TakeDamage(1);
+            }
+
+            if (health.currentHealth <= 0)
+            {
+                isAlive = false;
+            }
+
+
             if (actionHistoryManager != null)
             {
                 actionHistoryManager.RecordMove(deltaX, deltaY);
@@ -180,6 +214,8 @@ namespace Solution
             {
                 Move(1, 0);
             }
+
+            
         }
     }
 }
